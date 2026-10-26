@@ -1,0 +1,46 @@
+export const meta = {
+  title: "İlk ışığımızı yakalım",
+  description:
+    "Birkaç satır kodla kartımızın üzerindeki LED’i yakalım. İlk programın seni bekliyor!",
+  group: "Işıklarla keşfet",
+  order: 4,
+  duration: 10,
+};
+
+## LED nedir?
+
+LED, elektrikle ışık veren küçük bir parçadır. Bugün **kartın üzerindeki L LED’ini** kullanacağız. Ek kablo ya da LED gerekmiyor.
+
+## İlk kodumuz
+
+Aşağıdaki kodu kopyala, Arduino IDE’de yeni bir dosyaya yapıştır. Kart ve port seçiminin doğru olduğundan emin ol, ardından **Yükle** düğmesine bas.
+
+```cpp
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);
+}
+
+void loop() {
+  // Şimdilik burada bir şey yapmıyoruz.
+}
+```
+
+## Kod ne söylüyor?
+
+- **setup()**: Kart başladığında bir kez çalışır. Hazırlıklarımızı burada yaparız.
+- **pinMode(LED_BUILTIN, OUTPUT)**: Dahili LED’in pinini çıkış olarak ayarlar.
+- **digitalWrite(LED_BUILTIN, HIGH)**: Uno R3 üzerindeki dahili LED’i yakar.
+- **loop()**: Tekrar tekrar çalışır. Bu örnekte içini boş bıraktık.
+
+<Callout title="Küçük bir değişiklik, yeni bir sonuç">
+  Kodda HIGH yerine LOW yazıp yeniden yükle. LED’e ne oldu? Programdaki bir
+  kelimenin sonucu nasıl değiştirdiğini gözlemle.
+</Callout>
+
+<Quiz
+  question="Kart açıldığında yalnızca bir kez çalışan bölüm hangisi?"
+  options={["loop()", "setup()", "HIGH"]}
+  answer={1}
+  explanation="setup() hazırlıkları yapar; loop() daha sonra tekrar tekrar çalışır."
+/>

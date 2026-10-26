@@ -1,0 +1,47 @@
+export const meta = {
+  title: "Kartımızı keşfedelim",
+  description:
+    "Arduino Uno’nun üzerindeki küçük parçaları tanıyalım. Her parçanın bir görevi var!",
+  group: "Haydi başlayalım",
+  order: 2,
+  duration: 8,
+};
+
+<BoardIntro />
+
+## Kartın üzerindeki duraklar
+
+Bu atölyedeki donanım örneklerini **Arduino Uno R3** için hazırladık. Kartını masaya koy ve aşağıdaki parçaları öğretmeninle birlikte bul.
+
+| Parça            | Ne işe yarar?                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------------------------ |
+| USB girişi       | Bilgisayarla iletişim kurmamızı, kod yüklememizi ve karta güç vermemizi sağlar.                  |
+| Mikrodenetleyici | Yüklediğimiz programı çalıştıran çiptir.                                                         |
+| Dijital pinler   | LED ve buton gibi parçalarla bağlantı kurar. Uno R3’te 0–13 arasında numaralanır.                |
+| Analog girişler  | Sensörlerden gelen farklı gerilim seviyelerini okumamıza yardımcı olur. A0–A5 diye adlandırılır. |
+| GND              | Devremizin ortak referans bağlantısıdır.                                                         |
+| RESET düğmesi    | Yüklediğimiz programı baştan başlatır.                                                           |
+
+## Kartın kendi ışığı
+
+Kart üzerinde **L** harfiyle işaretlenen küçük bir LED var. İlk ışık deneyimizde bu LED’i kullanacağız. Böylece henüz ek bir devre kurmadan kodumuzu deneyebiliriz.
+
+<Callout title="Birlikte güvenle deneyelim">
+  Bağlantıları değiştirirken USB kablosunu çıkar. 5V ile GND pinlerini doğrudan
+  birleştirme. Devreyi öğretmenin kontrol ettikten sonra yeniden bağla. Bu
+  başlangıç derslerinde güç için yalnızca USB kullanacağız.
+</Callout>
+
+## Kart dedektifi
+
+1. USB girişini bul.
+2. RESET düğmesini göster.
+3. Üzerinde GND yazan bir pin bul.
+4. L harfiyle işaretlenen LED’i bul.
+
+<Quiz
+  question="RESET düğmesine bastığımızda ne olur?"
+  options={["Kart büyür", "Program baştan başlar", "Kod kalıcı olarak silinir"]}
+  answer={1}
+  explanation="RESET, kartta yüklü programı yeniden başlatır."
+/>

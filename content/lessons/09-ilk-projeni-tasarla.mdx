@@ -1,0 +1,70 @@
+export const meta = {
+  title: "İlk projeni tasarla",
+  description:
+    "Artık bir fikri küçük adımlara bölüp kodlayabiliyorsun. Kendi projen için sahne senin!",
+  group: "Birlikte üretelim",
+  order: 9,
+  duration: 20,
+};
+
+## Proje: kişisel ışık işaretin
+
+Bir butona basınca **kendi ışık ritmini** çalan bir kart tasarla. Malzemelerin önceki derslerle aynı: Arduino Uno R3, USB kablosu, buton ve bağlantı kabloları.
+
+<LearningGoals
+  items={[
+    "Ne yapmak istediğini anlat.",
+    "Bağlantını ve kodunu hazırla.",
+    "Dene, geliştir ve paylaş.",
+  ]}
+/>
+
+## Önce kâğıt üzerinde düşün
+
+1. İşaretin kaç kısa ve kaç uzun ışıktan oluşacak?
+2. Butona basılmadığında LED ne yapacak?
+3. Butonu basılı tutarsan ritmin tekrar etmesini ister misin?
+
+## Başlangıç kodun
+
+Önceki buton bağlantısını kullan. Aşağıdaki örnek, butona basılı tuttuğun sürece iki kısa ve bir uzun ışık çalar.
+
+```cpp
+void setup() {
+  pinMode(2, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void isikYak(int sure) {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(sure);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(250);
+}
+
+void loop() {
+  if (digitalRead(2) == LOW) {
+    isikYak(200);
+    isikYak(200);
+    isikYak(800);
+    delay(1000);
+  }
+}
+```
+
+<Callout title="Gözlem yapalım">
+  Ritim başladıktan sonra butonu bıraksan bile o ritim tamamlanır. Çünkü program
+  delay() ile beklerken butonu yeniden okumaz. Bir sonraki loop() turunda
+  yeniden kontrol eder.
+</Callout>
+
+## Projeni arkadaşlarına anlat
+
+- Projenin adı ne?
+- Hangi parçayı girdi, hangisini çıktı olarak kullandın?
+- Seni en çok ne zorladı? Nasıl çözdün?
+- Daha fazla zamanın olsa neler eklerdin?
+
+## İlk adımların tamamlandı!
+
+Bir kartı tanıdın, kod yükledin, bir LED’i kontrol ettin, butondan bilgi okudun ve koduna karar vermeyi öğrettin. **Sıradaki fikrin sana ait.** Yeni projeler için öğretmeninle birlikte keşfetmeye devam et.

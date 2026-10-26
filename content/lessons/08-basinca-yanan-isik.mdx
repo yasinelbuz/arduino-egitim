@@ -1,0 +1,55 @@
+export const meta = {
+  title: "Basınca yanan ışık",
+  description:
+    "Buton ve LED bir araya geliyor. “Eğer basıldıysa ışığı yak” diyerek ilk kararımızı kodlayalım.",
+  group: "Birlikte üretelim",
+  order: 8,
+  duration: 15,
+};
+
+## Önce bağlantımız
+
+Önceki dersteki buton devresini kullanacağız: butonun doğru seçilmiş iki ucu **2 numaralı pin** ve **GND** arasında olmalı. Çıktı olarak kart üzerindeki **L LED’ini** kullanacağız.
+
+## Eğer… değilse…
+
+Günlük hayatta pek çok karar veririz: “Eğer yağmur yağıyorsa şemsiyemi alırım.” Kodda bu kararı `if` ile yazarız. `else` ise koşul sağlanmadığında yapılacak işi söyler.
+
+```cpp
+void setup() {
+  pinMode(2, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  int buton = digitalRead(2);
+
+  if (buton == LOW) {
+    digitalWrite(LED_BUILTIN, HIGH);
+  } else {
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+}
+```
+
+## Deneyelim
+
+1. Kodu yükle. Butona basmadan ışığı gözlemle.
+2. Butona basılı tut. LED yanıyor mu?
+3. Butonu bırak. LED sönüyor mu?
+
+<Callout title="İki eşittir işaretine dikkat!">
+  `buton == LOW` bir karşılaştırmadır: “Butonun değeri LOW mu?” diye sorar. Tek
+  eşittir işareti olan `=` ise bir değişkene değer vermek içindir.
+</Callout>
+
+## Küçük bir meydan okuma
+
+Işığın **buton serbestken yanmasını**, basıldığında sönmesini sağlayabilir misin? Önce neyi değiştireceğini söyle, sonra yalnızca koşuldaki `LOW` değerini `HIGH` yapıp dene.
+
+<Quiz
+  question="if içindeki koşul doğru değilse hangi bölüm çalışır?"
+  options={["setup", "else", "Hiçbir zaman çalışmaz"]}
+  answer={1}
+  explanation="else, if koşulunun sağlanmadığı durumdaki komutları içerir."
+/>

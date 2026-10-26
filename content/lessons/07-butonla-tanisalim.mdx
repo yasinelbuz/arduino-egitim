@@ -1,0 +1,60 @@
+export const meta = {
+  title: "Butonla tanışalım",
+  description:
+    "Bu kez Arduino bizi dinleyecek. Bir düğmeye basıldığını nasıl anlayabildiğini keşfedelim.",
+  group: "Birlikte üretelim",
+  order: 7,
+  duration: 15,
+};
+
+## Girdi ve çıktı
+
+LED bir **çıktıdır**: Kart dışarıya bir işaret gönderir. Buton ise bir **girdidir**: Dış dünyadan karta bilgi gelir.
+
+Bu derste iki bağlantılı bir anlık buton kullanacağız. Dört bacaklı butonun varsa hangi bacakların içeriden bağlı olduğunu öğretmeninle kontrol et. Aynı tarafta görünen bacaklara güvenerek bağlantı yapma.
+
+## Bağlantıyı kuralım
+
+Önce USB kablosunu çıkar. Butonun **basılmadığında birbirinden ayrı, basıldığında birleşen iki ucunu** kullan.
+
+| Buton ucu  | Arduino Uno R3 bağlantısı |
+| ---------- | ------------------------- |
+| Birinci uç | Dijital 2 numaralı pin    |
+| İkinci uç  | GND                       |
+
+Öğretmenin bağlantıyı kontrol ettikten sonra USB’yi yeniden tak.
+
+## Butonun durumunu okuyalım
+
+```cpp
+void setup() {
+  pinMode(2, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int durum = digitalRead(2);
+  Serial.println(durum);
+  delay(100);
+}
+```
+
+Kodu yükledikten sonra IDE’de **Seri Monitör** penceresini aç ve hızını **9600 baud** seç. Butona basıp bıraktığında sayıları gözlemle.
+
+## Neden basınca 0 görüyoruz?
+
+`INPUT_PULLUP`, pinin dahili pull-up direncini açar. Buton serbestken pin **HIGH (1)** okunur. Butona bastığımızda pin GND’ye bağlanır ve **LOW (0)** okunur.
+
+<Callout title="Bu bağlantıda kuralımız şu" type="note">
+  Buton serbest = HIGH. Butona basıldı = LOW. Sonraki derste bu bilgiyi
+  kullanarak LED’i kontrol edeceğiz.
+</Callout>
+
+<Quiz
+  question="Bu devrede butona bastığımızda hangi değer okunur?"
+  options={["HIGH (1)", "LOW (0)", "Her zaman 5"]}
+  answer={1}
+  explanation="Butona basmak pini GND’ye bağlar; INPUT_PULLUP düzeninde LOW okunur."
+/>
+
+Kaynak: [Arduino’nun dahili pull-up örneği](https://docs.arduino.cc/built-in-examples/digital/InputPullupSerial/).

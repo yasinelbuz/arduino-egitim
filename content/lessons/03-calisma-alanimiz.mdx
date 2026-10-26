@@ -1,0 +1,47 @@
+export const meta = {
+  title: "Çalışma alanımızı hazırlayalım",
+  description:
+    "Bilgisayarımızı hazırlayalım ve Arduino’ya ilk programımızı yüklemek için hazır olalım.",
+  group: "Haydi başlayalım",
+  order: 3,
+  duration: 15,
+};
+
+## Neye ihtiyacımız var?
+
+- Bir Arduino Uno R3 kartı
+- Karta uygun, veri aktarabilen bir USB kablosu
+- Bir bilgisayar ve öğretmenin yardımı
+- Kodumuzu yazacağımız Arduino IDE uygulaması
+
+## Arduino IDE’yi hazırlayalım
+
+**IDE**, kod yazıp karta yükleyebildiğimiz çalışma alanıdır. Kurulumu bir yetişkinle birlikte yap.
+
+1. [Arduino’nun resmi yazılım sayfasını](https://www.arduino.cc/en/software) aç ve bilgisayarına uygun Arduino IDE’yi indirip kur.
+2. Arduino’yu USB kablosuyla bilgisayarına bağla.
+3. IDE’yi aç. Kart seçicisinden **Arduino Uno** kartını ve kartın bağlı olduğu portu seç. Kart paketi istenirse Uno R3 için **Arduino AVR Boards** paketini kur.
+4. Bir sonraki dersteki kodu yeni bir çalışma dosyasına yapıştıracağız.
+
+## İki önemli düğme
+
+**Doğrula (✓)** düğmesi kodun derlenip derlenemediğini kontrol eder. Bir hata varsa alt bölümde mesaj görürsün.
+
+**Yükle (→)** düğmesi programı derler ve seçtiğin karta gönderir. Yükleme tamamlandığında program Arduino üzerinde çalışmaya başlar.
+
+<Callout title="Kart görünmüyor mu?">
+  Bazı USB kabloları yalnızca şarj içindir. Veri aktarabilen başka bir kabloyu
+  ve farklı bir USB girişini öğretmeninle dene. Doğru kartı ve portu
+  seçtiğinizden emin olun.
+</Callout>
+
+## İlk kontrolümüz
+
+Kartını bağladığında güç göstergesi olan **ON** ışığına bak. Bu ışık, kartın güç aldığını gösterir. Yükleme işlemi sırasında kabloyu çekme.
+
+<Quiz
+  question="Yazdığımız kodu karta hangi düğmeyle göndeririz?"
+  options={["Yükle", "Kaydet", "RESET"]}
+  answer={0}
+  explanation="Yükle düğmesi programı seçtiğimiz Arduino kartına gönderir."
+/>

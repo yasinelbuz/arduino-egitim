@@ -1,0 +1,64 @@
+export const meta = {
+  title: "Kendi ışık ritmini oluştur",
+  description:
+    "Öğrendiklerimizi birleştirelim. İki kısa, bir uzun ışıkla kendimize ait bir işaret oluşturalım.",
+  group: "Işıklarla keşfet",
+  order: 6,
+  duration: 15,
+};
+
+## Projemizin planı
+
+Işığımız iki kez kısa, bir kez uzun yanacak. Sonra biraz dinlenip baştan başlayacak. Önce bu ritmi ellerinle masaya hafifçe vurarak dene.
+
+<LearningGoals
+  items={[
+    "Ritmi kâğıda çiz.",
+    "Süreleri koda dönüştür.",
+    "Yükle ve sonucu gözlemle.",
+  ]}
+/>
+
+## Tekrarı kolaylaştıran bir yardımcı
+
+Aynı işi birkaç kez yapacağız. Bu yüzden `isikYak` adında küçük bir **fonksiyon** yazalım. Bu yardımcı, verdiğimiz süre boyunca ışığı yakacak ve sonra söndürecek.
+
+```cpp
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void isikYak(int sure) {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(sure);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(250);
+}
+
+void loop() {
+  isikYak(200);
+  isikYak(200);
+  isikYak(800);
+  delay(1500);
+}
+```
+
+## Kendi işaretini tasarla
+
+1. Kaç kısa, kaç uzun ışık istediğine karar ver.
+2. `loop()` içindeki `isikYak()` satırlarını değiştir veya yenilerini ekle.
+3. Arkadaşından ritmi tahmin etmesini iste.
+
+`int sure`, yardımcı fonksiyonumuzun aldığı tam sayı değeridir. `isikYak(800)` dediğimizde `sure` değeri 800 olur.
+
+<Callout title="Hata yapmak öğrenmenin bir parçası">
+  Kod çalışmazsa parantezleri ve satır sonlarındaki noktalı virgülleri kontrol
+  et. Her seferinde tek bir değişiklik yaparsan sorunu daha kolay bulursun.
+</Callout>
+
+<Quiz
+  question="isikYak(800) çağrısı ışığı ne kadar açık tutar?"
+  options={["800 milisaniye", "800 saniye", "8 dakika"]}
+  answer={0}
+  explanation="sure değeri delay() içine gittiği için milisaniye olarak kullanılır."
+/>

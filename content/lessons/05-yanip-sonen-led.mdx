@@ -1,0 +1,52 @@
+export const meta = {
+  title: "Yanıp sönen LED",
+  description:
+    "Işığımıza bir ritim verelim. Yak, bekle, söndür, bekle… İşte ilk döngümüz!",
+  group: "Işıklarla keşfet",
+  order: 5,
+  duration: 12,
+};
+
+## Tekrar eden bir görev
+
+Bir işi tekrar tekrar yaptırmak istediğimizde kodumuzu **loop()** içine yazarız. Bu kez LED’i yakıp bir süre bekleyecek, sonra söndürüp yeniden bekleyeceğiz.
+
+```cpp
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
+```
+
+## Bir saniye ne kadar?
+
+`delay()` bekleme süresini **milisaniye** cinsinden alır. **1000 milisaniye = 1 saniye.** Kodumuz LED’i bir saniye açık, bir saniye kapalı tutar.
+
+<BlinkLab />
+
+## Şimdi gerçek kartta dene
+
+1. Kodu kartına yükle ve L LED’ini izle.
+2. İki `delay(1000)` satırındaki sayıları da `500` yap.
+3. Kodu yeniden yükle. Işık daha hızlı mı, daha yavaş mı yanıp sönüyor?
+4. Bir beklemeyi `200`, diğerini `1000` yap. Ritmin nasıl değiştiğini anlat.
+
+<Callout title="Düşün, tahmin et, dene">
+  Kodu değiştirmeden önce ne olacağını tahmin et. Sonra dene ve sonucu
+  tahmininle karşılaştır. Bilim insanları da böyle öğrenir!
+</Callout>
+
+<Quiz
+  question="delay(500) ne kadar bekletir?"
+  options={["5 saniye", "Yarım saniye", "500 saniye"]}
+  answer={1}
+  explanation="500 milisaniye, bir saniyenin yarısıdır."
+/>
+
+Kaynak: [Arduino’nun Blink örneği](https://docs.arduino.cc/built-in-examples/basics/Blink/).
